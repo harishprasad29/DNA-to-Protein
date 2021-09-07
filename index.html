@@ -22,7 +22,7 @@
         var chars = {'A':'T','T':'A','G':'C','C':'G'};
         x = x.replace(/[ATGC]/gi, m=>chars[m]);
         let y=x.split("");
-        x = x.replace('T','U');
+        x = x.replace(/T/g,'U');
         document.getElementById("msg1").innerHTML= 'This is your string of  mRNA: '+ x;
         x="";
         for(let i=0;i<y.length;i=i+3){
