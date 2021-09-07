@@ -15,12 +15,15 @@
         <button type="button" onclick="Translate()">Translate</button>
         <p></p>
         <p id="msg"></p>
+        <p id="msg1"></p>
     <script>
         function Translate(){
         let x = document.forms["form"]["input"].value;
         var chars = {'A':'T','T':'A','G':'C','C':'G'};
         x = x.replace(/[ATGC]/gi, m=>chars[m]);
         let y=x.split("");
+        x = x.replace('T','U');
+        document.getElementById("msg1").innerHTML= 'This is your string of  mRNA: '+ x;
         x="";
         for(let i=0;i<y.length;i=i+3){
             if(((y[i]=='T')&&(y[i+1]=='T')&&(y[i+2]=='T'))||((y[i]=='T')&&(y[i+1]=='T')&&(y[i+2]=='C'))){
@@ -87,7 +90,7 @@
                 x+='Gly';
             }
         }
-        document.getElementById("msg").innerHTML= 'This is your DNA Compliment RNA: '+ x;
+        document.getElementById("msg").innerHTML= 'This is your Protein: '+ x;
         }
     </script>
 </body>
